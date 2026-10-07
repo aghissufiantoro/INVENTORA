@@ -21,6 +21,7 @@ use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\BarangRusakController;
 use App\Http\Controllers\Auth\CustomPasswordResetController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\InventoryApprovalController;
 
 //
@@ -38,6 +39,12 @@ Route::post('password/verify-otp', [CustomPasswordResetController::class, 'verif
 Route::get('password/reset', [CustomPasswordResetController::class, 'showResetForm'])->name('password.reset.form');
 Route::post('password/reset', [CustomPasswordResetController::class, 'resetPassword'])->name('password.update');
 Route::post('password/resend-otp', [CustomPasswordResetController::class, 'resendOTP'])->name('password.resend.otp');
+
+Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register');
+Route::post('/register', [RegisterController::class, 'register']);
+Route::get('/register/verify', [RegisterController::class, 'showVerifyForm'])->name('register.verify.form');
+Route::post('/register/verify', [RegisterController::class, 'verifyEmail'])->name('register.verify');
+Route::post('/register/resend-otp', [RegisterController::class, 'resendOtp'])->name('register.resend-otp');
 
 //
 // DASHBOARD

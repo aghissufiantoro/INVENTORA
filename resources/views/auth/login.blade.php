@@ -86,11 +86,15 @@
                 @enderror
             </div>
 
-            {{-- Link Lupa Password --}}
-            <div class="mt-3 text-center">
+            {{-- Link Lupa Password & Daftar --}}
+            <div class="mt-3 text-center space-y-2">
                 <a href="{{ route('password.request') }}" class="text-decoration-none">
                     Lupa Password?
                 </a>
+                <p class="text-sm text-gray-500">
+                    Belum punya akun?
+                    <a href="{{ route('register') }}" class="text-blue-600 hover:text-blue-700 font-medium">Daftar di sini</a>
+                </p>
             </div>
 
             {{-- Tombol Login --}}
